@@ -10,11 +10,11 @@ export const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/stat",
+    path: "/welcome",
     element: <MainLayout />,
     children: [
       { index: true, element: <Dashboard /> },
-      { path: "ui", element: <DesignSystemPlayground /> },
-    ],
-  },
+      { path: "test", element: <DesignSystemPlayground /> }
+    ]
+  }
 ]);
