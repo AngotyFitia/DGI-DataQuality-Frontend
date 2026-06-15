@@ -39,3 +39,16 @@ Ce document retrace l'évolution du projet DGI et les principales contributions 
 
 - Lien :
   https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/2
+
+## PR #3 - Correction des problèmes de déploiement (Vercel)
+
+- Description :
+  - Correction du problème de routage SPA sur Vercel (erreur 404 sur les routes comme /stat)
+  - Ajout de la configuration `vercel.json` pour gérer le fallback vers `index.html`
+  - Correction du chargement du favicon manquant (favicon.ico)
+  - Amélioration de la stabilité du déploiement frontend
+
+- Impact :
+  - Navigation fonctionnelle en production
+  - Suppression des erreurs 404 lors du refresh des pages
+  - Nettoyage des erreurs de ressources manquantes dans le navigateur
