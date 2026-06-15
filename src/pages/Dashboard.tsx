@@ -1,11 +1,44 @@
+import { useState } from "react";
 import StatCard from "../components/ui/StatCard";
 import DashboardCard from "../components/ui/DashboardCard";
 import QualityChart from "../components/ui/QualityChart";
 import AnomalyChart from "../components/ui/AnomalyChart";
 import Table from "../components/ui/Table";
-import { recentActivities, stats } from "../data/dashboardData";
+import Input from "../components/ui/Input";
+import { qualityData, recentActivities, stats } from "../data/dashboardData";
 
 export default function Dashboard() {
+  const [search, setSearch] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [qualityRange, setQualityRange] = useState("6m");
+  const filteredActivities = recentActivities.filter((item) => {
+  const matchSearch =
+      item.contribuable.toLowerCase().includes(search.toLowerCase());
+
+    const itemDate = new Date(item.date).getTime();
+    const start = startDate ? new Date(startDate).getTime() : null;
+    const end = endDate ? new Date(endDate).getTime() : null;
+
+    const matchStart = start ? itemDate >= start : true;
+    const matchEnd = end ? itemDate <= end : true;
+
+    return matchSearch && matchStart && matchEnd;
+  });
+  const now = new Date();
+    const filteredQualityData = qualityData.filter((item) => {
+      const itemDate = new Date(item.date);
+
+      const diffMonths =
+        (now.getFullYear() - itemDate.getFullYear()) * 12 +
+        (now.getMonth() - itemDate.getMonth());
+
+      if (qualityRange === "3m") return diffMonths <= 3;
+      if (qualityRange === "6m") return diffMonths <= 6;
+      if (qualityRange === "1y") return diffMonths <= 12;
+
+      return true;
+    });
   return (
     <div className="space-y-8">
       <div>
@@ -16,30 +49,40 @@ export default function Dashboard() {
           Voici un aperçu général de la qualité des données.
         </p>
       </div>
-
       <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {stats.map((stat) => (
           <StatCard key={stat.label} value={stat.value} label={stat.label} color={stat.color}/>
         ))}
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-
-      <DashboardCard title="Evolution du score qualité" action={
-          <select className=" text-sm bg-transparent border border-[var(--border)] rounded-mdpx-2 py-1">
-            <option>6 derniers mois</option>
+        <DashboardCard title="Evolution du score qualité" action={
+            <select
+            value={qualityRange}
+            onChange={(e) => setQualityRange(e.target.value)}
+            className="text-sm bg-transparent border border-[var(--border)] rounded-md px-2 py-1"
+          >
+            <option value="3m">3 derniers mois</option>
+            <option value="6m">6 derniers mois</option>
+            <option value="1y">1 an</option>
           </select>
-        }
-      >
-      <QualityChart />
-      </DashboardCard>
+          }
+        >
+        <QualityChart data={filteredQualityData} />
+        </DashboardCard>
 
-      <DashboardCard title="Répartition des anomalies">
-        <AnomalyChart />
-      </DashboardCard>
-    </div>
-    <DashboardCard title="Activités récentes">
+        <DashboardCard title="Répartition des anomalies">
+          <AnomalyChart />
+        </DashboardCard>
+      </div>
+      <DashboardCard title="Activités récentes">
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <Input type="text" placeholder="Rechercher un contribuable..." value={search} onChange={(e) => setSearch(e.target.value)} className="flex-1"/>
+          <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)}className="w-full md:w-auto"/>
+          <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full md:w-auto"
+        />
+        </div>
         <Table headers={["Contribuable", "Action", "Statut", "Date"]}>
-          {recentActivities.map((item) => (
+          {filteredActivities.map((item) => (
             <tr key={item.id} className="border-t border-[var(--border)]">
               <td className="p-3">{item.contribuable}</td>
               <td className="p-3">{item.action}</td>

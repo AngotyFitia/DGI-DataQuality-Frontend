@@ -23,12 +23,12 @@ export const stats = [
 
 
   export const qualityData = [
-    { month: "Déc", score: 20 },
-    { month: "Jan", score: 60 },
-    { month: "Fév", score: 25 },
-    { month: "Mar", score: 50 },
-    { month: "Avr", score: 100 },
-    { month: "Mai", score: 20 },
+    { month: "Déc", date: "2025-12-01", score: 20 },
+    { month: "Jan", date: "2026-01-01", score: 60 },
+    { month: "Fév", date: "2026-02-01", score: 25 },
+    { month: "Mar", date: "2026-03-01", score: 50 },
+    { month: "Avr", date: "2026-04-01", score: 100 },
+    { month: "Mai", date: "2026-05-01", score: 20 },
   ];
   
   export const anomalyData = [
