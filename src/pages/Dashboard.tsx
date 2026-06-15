@@ -11,34 +11,38 @@ export default function Dashboard() {
   const [search, setSearch] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const now = new Date();
   const [qualityRange, setQualityRange] = useState("6m");
+  const [statusFilter, setStatusFilter] = useState("all");
   const filteredActivities = recentActivities.filter((item) => {
-  const matchSearch =
+    const matchSearch =
       item.contribuable.toLowerCase().includes(search.toLowerCase());
-
+  
     const itemDate = new Date(item.date).getTime();
     const start = startDate ? new Date(startDate).getTime() : null;
     const end = endDate ? new Date(endDate).getTime() : null;
-
+  
     const matchStart = start ? itemDate >= start : true;
     const matchEnd = end ? itemDate <= end : true;
-
-    return matchSearch && matchStart && matchEnd;
+  
+    const matchStatus =
+      statusFilter === "all" ? true : item.statut === statusFilter;
+  
+    return matchSearch && matchStart && matchEnd && matchStatus;
   });
-  const now = new Date();
-    const filteredQualityData = qualityData.filter((item) => {
-      const itemDate = new Date(item.date);
+  const filteredQualityData = qualityData.filter((item) => {
+    const itemDate = new Date(item.date);
 
-      const diffMonths =
-        (now.getFullYear() - itemDate.getFullYear()) * 12 +
-        (now.getMonth() - itemDate.getMonth());
+    const diffMonths =
+      (now.getFullYear() - itemDate.getFullYear()) * 12 +
+      (now.getMonth() - itemDate.getMonth());
 
-      if (qualityRange === "3m") return diffMonths <= 3;
-      if (qualityRange === "6m") return diffMonths <= 6;
-      if (qualityRange === "1y") return diffMonths <= 12;
+    if (qualityRange === "3m") return diffMonths <= 3;
+    if (qualityRange === "6m") return diffMonths <= 6;
+    if (qualityRange === "1y") return diffMonths <= 12;
 
-      return true;
-    });
+    return true;
+  });
   return (
     <div className="space-y-8">
       <div>
@@ -77,9 +81,14 @@ export default function Dashboard() {
       <DashboardCard title="Activités récentes">
         <div className="flex flex-col md:flex-row gap-4 mb-4">
           <Input type="text" placeholder="Rechercher un contribuable..." value={search} onChange={(e) => setSearch(e.target.value)} className="flex-1"/>
-          <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)}className="w-full md:w-auto"/>
-          <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full md:w-auto"
-        />
+          <Input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="w-full md:w-auto"/>
+          <Input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="w-full md:w-auto"/>
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="px-3 py-2 text-sm border border-[var(--border)] rounded-md bg-transparent">
+            <option value="all">-- Tous --</option>
+            <option value="Succès">Succès</option>
+            <option value="Anomalie">Anomalie</option>
+            <option value="En cours">En cours</option>
+          </select>
         </div>
         <Table headers={["Contribuable", "Action", "Statut", "Date"]}>
           {filteredActivities.map((item) => (
