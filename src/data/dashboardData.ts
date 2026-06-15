@@ -20,3 +20,36 @@ export const stats = [
       color: "text-green-600",
     },
   ];
+
+
+  export const qualityData = [
+    { month: "Déc", score: 20 },
+    { month: "Jan", score: 60 },
+    { month: "Fév", score: 25 },
+    { month: "Mar", score: 50 },
+    { month: "Avr", score: 100 },
+    { month: "Mai", score: 20 },
+  ];
+  
+  export const anomalyData = [
+    {
+      name: "Doublons suspects",
+      value: 45,
+      color: "#F59E0B",
+    },
+    {
+      name: "Incohérences",
+      value: 25,
+      color: "#3B82F6",
+    },
+    {
+      name: "Identités invalides",
+      value: 20,
+      color: "#8B5CF6",
+    },
+    {
+      name: "Avertissements",
+      value: 10,
+      color: "#10B981",
+    },
+  ];
