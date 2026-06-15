@@ -52,3 +52,6 @@ Ce document retrace l'évolution du projet DGI et les principales contributions 
   - Navigation fonctionnelle en production
   - Suppression des erreurs 404 lors du refresh des pages
   - Nettoyage des erreurs de ressources manquantes dans le navigateur
+
+- Lien :
+  https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/3
