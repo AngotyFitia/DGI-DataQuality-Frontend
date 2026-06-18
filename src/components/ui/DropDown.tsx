@@ -10,11 +10,31 @@ type DropdownProps = {
   className?: string;
 };
 
-export default function Dropdown({ value, onChange, options,className = "",}: DropdownProps) {
+export default function Dropdown({
+  value,
+  onChange,
+  options,
+  className = "",
+}: DropdownProps) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value)} className={`px-3 py-2 text-sm border border-[var(--border)] rounded-md bg-transparent text-[var(--text-primary)] outline-none focus:border-blue-500 ${className}`}>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className={`
+        px-3 py-2 text-sm rounded-md
+        border border-[var(--border)]
+        bg-[var(--surface)]
+        text-[var(--text-primary)]
+        outline-none
+        focus:border-blue-500
+        transition
+        ${className}
+      `}
+    >
       {options.map((opt) => (
-        <option key={opt.value} value={opt.value}> {opt.label}</option>
+        <option key={opt.value} value={opt.value}>
+          {opt.label}
+        </option>
       ))}
     </select>
   );

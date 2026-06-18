@@ -1,26 +1,41 @@
+type Header = {
+  label: string;
+  align?: "left" | "center" | "right";
+};
+
 export default function Table({
-    headers,
-    children,
-  }: {
-    headers: string[];
-    children: React.ReactNode;
-  }) {
-    return (
-      <div className="overflow-x-auto">
-        <table className="w-full border border-[var(--border)]">
-          <thead className="bg-white/5">
-            <tr>
-              {headers.map((h) => (
-                <th key={h} className="text-left p-3 text-sm">
-                  {h}
-                </th>
-              ))}
-            </tr>
-          </thead>
-            <tbody className="divide-y divide-[var(--border)]">
-            {children}
-            </tbody>
-        </table>
-      </div>
-    );
-  }
+  headers,
+  children,
+}: {
+  headers: Header[];
+  children: React.ReactNode;
+}) {
+  const getAlign = (align?: string) => {
+    switch (align) {
+      case "center":
+        return "text-center";
+      case "right":
+        return "text-right";
+      default:
+        return "text-left";
+    }
+  };
+
+  return (
+    <div className="w-full overflow-x-auto">
+      <table className="min-w-full border border-[var(--border)]">
+        <thead className="bg-[var(--surface)]">
+          <tr>
+            {headers.map((h) => (
+              <th key={h.label} className={`text-sm p-3 whitespace-nowrap ${getAlign(h.align)}`}> {h.label}</th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody className="divide-y divide-[var(--border)]">
+          {children}
+        </tbody>
+      </table>
+    </div>
+  );
+}

@@ -53,7 +53,7 @@ export default function ContribuablesList() {
       </DashboardCard>
 
       <DashboardCard title={""}>
-        <Table headers={[ "NIF", "Nom société", "Type", "Activité", "Centre fiscal", "Score", "Statut", "Actions"]}>
+        <Table headers={[ { label: "NIF", align: "left" }, { label: "Nom", align: "left" }, { label: "Société", align: "left" }, { label: "Activités", align: "left" }, { label: "Centre", align: "left" }, { label: "Score", align: "center" }, { label: "Statut", align: "center" }, { label: "Actions", align: "center" }]}>
           {filteredContribuables.map((c) => (
             <tr key={c.nif} className="border-t border-[var(--border)]">
                 <td className="p-3">{c.nif}</td>
