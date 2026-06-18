@@ -90,6 +90,10 @@ Ce document retrace l'évolution du projet DGI et les principales contributions 
     - Amélioration de la lisibilité des fiches détaillées
     - Structuration des données en sections claires
     - Harmonisation avec le design system existant
+    - 
+  - Améliorations complémentaires
+    - Configuration de la redirection automatique vers la page de connexion au lancement de l'application
+    - Correction de la structure des routes React Router
 
 - Lien :
   https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/5

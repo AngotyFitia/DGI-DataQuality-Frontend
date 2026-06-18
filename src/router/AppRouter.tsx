@@ -7,17 +7,16 @@ import ContribuablesPage from "../pages/contribuables/ContribuablesPage";
 
 export const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <Login />,
   },
   {
-    path: "/",
+    path: "/welcome",
     element: <MainLayout />,
     children: [
-      // { index: true, element: <Dashboard /> },
       { path: "test", element: <DesignSystemPlayground /> },
-      { path: "/stat", element: <Dashboard /> },
-      { path: "/contribuables", element: <ContribuablesPage />}
+      { path: "stat", element: <Dashboard /> },
+      { path: "contribuables", element: <ContribuablesPage />}
     ]
   }
 ]);
