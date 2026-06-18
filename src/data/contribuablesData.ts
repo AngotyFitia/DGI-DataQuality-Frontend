@@ -3,10 +3,9 @@ export const contribuables = [
       nif: "1000 1234 567",
       nom: "Madagascar Trading S.A.R.L",
       type: "Société",
-      activite: "Commerce de gros",
       centreFiscal: "Antananarivo Centre",
       score: 72,
-      statut: "Actif",
+      statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=12",
   
@@ -24,6 +23,26 @@ export const contribuables = [
       debutActivite: "16/08/2016",
       formeJuridique: "S.A.R.L",
   
+      activitePrincipale: {
+        code: "G-14.10",
+        libelle: "Commerce de gros",
+        categorie: "Commerce",
+        dateDebut: "16/08/2016",
+      },
+  
+      activitesSecondaires: [
+        {
+          code: "G-14.11",
+          libelle: "Commerce de ciments",
+          dateDebut: "16/12/2016",
+        },
+        {
+          code: "H-17.10",
+          libelle: "Transport routiers",
+          dateDebut: "13/01/2017",
+        },
+      ],
+  
       anomalies: {
         donneesManquantes: 2,
         incoherences: 1,
@@ -36,10 +55,9 @@ export const contribuables = [
       nif: "2000 987 654",
       nom: "Tech Solutions Madagascar",
       type: "Société",
-      activite: "Technologie",
       centreFiscal: "Antananarivo Nord",
       score: 88,
-      statut: "Actif",
+      statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=5",
   
@@ -57,6 +75,21 @@ export const contribuables = [
       debutActivite: "10/03/2019",
       formeJuridique: "S.A.R.L",
   
+      activitePrincipale: {
+        code: "J-62.01",
+        libelle: "Développement logiciel",
+        categorie: "Technologie",
+        dateDebut: "10/03/2019",
+      },
+  
+      activitesSecondaires: [
+        {
+          code: "J-63.11",
+          libelle: "Hébergement de données",
+          dateDebut: "15/06/2020",
+        },
+      ],
+  
       anomalies: {
         donneesManquantes: 0,
         incoherences: 0,
@@ -69,10 +102,9 @@ export const contribuables = [
       nif: "3000 456 789",
       nom: "Agro Export SARL",
       type: "Société",
-      activite: "Agriculture",
       centreFiscal: "Antsirabe",
       score: 64,
-      statut: "Actif",
+      statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=8",
   
@@ -90,6 +122,21 @@ export const contribuables = [
       debutActivite: "01/09/2014",
       formeJuridique: "S.A.R.L",
   
+      activitePrincipale: {
+        code: "A-01.11",
+        libelle: "Culture de riz",
+        categorie: "Agriculture",
+        dateDebut: "01/09/2014",
+      },
+  
+      activitesSecondaires: [
+        {
+          code: "A-01.13",
+          libelle: "Culture de légumes",
+          dateDebut: "12/03/2016",
+        },
+      ],
+  
       anomalies: {
         donneesManquantes: 3,
         incoherences: 2,
@@ -102,10 +149,9 @@ export const contribuables = [
       nif: "4000 111 222",
       nom: "Transport Express Mada",
       type: "Société",
-      activite: "Transport",
       centreFiscal: "Toamasina",
       score: 79,
-      statut: "Inactif",
+      statut: "À vérifier",
   
       image: "https://i.pravatar.cc/150?img=15",
   
@@ -123,6 +169,21 @@ export const contribuables = [
       debutActivite: "15/01/2018",
       formeJuridique: "S.A.R.L",
   
+      activitePrincipale: {
+        code: "H-49.41",
+        libelle: "Transport routier",
+        categorie: "Transport",
+        dateDebut: "15/01/2018",
+      },
+  
+      activitesSecondaires: [
+        {
+          code: "H-52.10",
+          libelle: "Entreposage",
+          dateDebut: "20/09/2019",
+        },
+      ],
+  
       anomalies: {
         donneesManquantes: 1,
         incoherences: 1,
@@ -135,10 +196,9 @@ export const contribuables = [
       nif: "5000 333 444",
       nom: "Green Energy Madagascar",
       type: "Société",
-      activite: "Énergie",
       centreFiscal: "Fianarantsoa",
       score: 91,
-      statut: "Actif",
+      statut: "À vérifier",
   
       image: "https://i.pravatar.cc/150?img=20",
   
@@ -155,6 +215,21 @@ export const contribuables = [
       dateCreation: "15/09/2020",
       debutActivite: "01/10/2020",
       formeJuridique: "S.A.R.L",
+  
+      activitePrincipale: {
+        code: "D-35.11",
+        libelle: "Production d’électricité",
+        categorie: "Énergie",
+        dateDebut: "01/10/2020",
+      },
+  
+      activitesSecondaires: [
+        {
+          code: "D-35.14",
+          libelle: "Distribution d’électricité",
+          dateDebut: "10/02/2021",
+        },
+      ],
   
       anomalies: {
         donneesManquantes: 0,
