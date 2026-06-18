@@ -6,6 +6,9 @@ import Table from "../../components/ui/Table";
 import Button from "../../components/ui/Button";
 import { contribuables } from "../../data/contribuablesData";
 import { Eye, Pencil, History,Brain } from "lucide-react";
+import Modal from "../../components/ui/Modal";
+import Tabs from "../../components/ui/Tabs";
+import ScorePie from "../../components/ui/ScorePie";
 
 export default function ContribuablesList() {
   const [search, setSearch] = useState("");
@@ -15,6 +18,7 @@ export default function ContribuablesList() {
   const [statut, setStatut] = useState("");
   const [minScore, setMinScore] = useState("");
   const [maxScore, setMaxScore] = useState("");
+  const [selected, setSelectedContribuables] = useState<any | null>(null);
 
   const filteredContribuables = contribuables.filter((c) => {
     const matchSearch = c.nif.toLowerCase().includes(search.toLowerCase()) ||c.nom.toLowerCase().includes(search.toLowerCase());
@@ -26,6 +30,8 @@ export default function ContribuablesList() {
     const matchMaxScore = !maxScore || c.score <= Number(maxScore);
     return (  matchSearch && matchType && matchActivite && matchCentreFiscal && matchStatut && matchMinScore && matchMaxScore);
   });
+
+    
 
   return (
     <div className="space-y-6">
@@ -66,7 +72,7 @@ export default function ContribuablesList() {
                 <td className="p-3"> <span className={ c.statut === "Validé" ? "text-green-500" : c.statut === "À vérifier" ? "text-orange-500" : "text-red-500" }> {c.statut}</span></td>
                 <td className="p-3">
                     <div className="flex gap-2">
-                        <Button variant="secondary" className="px-2 py-2"> <Eye size={16} /></Button>
+                        <Button variant="secondary" className="px-2 py-2" onClick={() => setSelectedContribuables(c)} > <Eye size={16} /></Button>
                         <Button variant="alert" className="px-2 py-2"> <Pencil size={16} /></Button>
                         <Button variant="primary" className="px-2 py-2"> <Brain size={16} /></Button>
                         <Button variant="secondary" className="px-2 py-2"><History size={16} /></Button>
@@ -85,6 +91,129 @@ export default function ContribuablesList() {
           </div>
         </div>
       </DashboardCard>
+      <Modal open={!!selected} onClose={() => setSelectedContribuables(null)}>
+      {selected && (
+        <div className="space-y-6">
+        <div>
+            <h2 className="text-2xl font-bold"> {selected.nom}</h2>
+            <p className="text-sm text-[var(--text-secondary)]">
+              NIF: {selected.nif}
+            </p>
+          </div>
+    
+          <Tabs
+            tabs={[
+                {
+                    label: "Aperçu",
+                    content: (
+                      <div className="space-y-6">
+                        <DashboardCard title={""} >
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">NIF</p>
+                                <p className="font-semibold">{selected.nif}</p>
+                                </div>
+
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">Nom / Raison sociale</p>
+                                <p className="font-semibold">{selected.nom}</p>
+                                </div>
+
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">Centre fiscal</p>
+                                <p className="font-semibold">{selected.centreFiscal}</p>
+                                </div>
+
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">Statut</p>
+                                <p className="font-semibold">{selected.statut}</p>
+                                </div>
+
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">Type</p>
+                                <p className="font-semibold">{selected.type}</p>
+                                </div>
+
+                                <div>
+                                <p className="text-sm text-[var(--text-secondary)]">Date création</p>
+                                <p className="font-semibold">{selected.dateCreation}</p>
+                                </div>
+
+                            </div>
+                        </DashboardCard>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">                  
+                          <DashboardCard title={""}>
+                            <p className="font-semibold mb-2">Coordonnées</p>
+                            <p>Adresse: {selected.adresse}</p>
+                            <p>Téléphone: {selected.telephone}</p>
+                            <p>Email: {selected.email}</p>
+                            <p>Site web: {selected.site}</p>
+                          </DashboardCard>
+                          <DashboardCard title={""}>
+                            <p className="font-semibold mb-2">Informations clés</p>
+                            <p>Activité : {selected.activite}</p>
+                            <p>Forme juridique : {selected.formeJuridique}</p>
+                            <p>Capital : {selected.capital}</p>
+                            <p>Effectif : {selected.effectif}</p>
+                          </DashboardCard>
+                        </div>
+                  
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <DashboardCard title={""}>
+                            <p className="font-semibold mb-3">Score de qualité</p>
+                            <div className="flex items-center justify-center">
+                              <ScorePie value={selected.score} />
+                            </div>
+                            <p className="text-center font-bold">{selected.score}%</p>
+                          </DashboardCard>
+                          <DashboardCard title={""}>
+                            <p className="font-semibold mb-3">Résumé des anomalies</p>
+                            <p>Données manquantes : {selected.anomalies.donneesManquantes}</p>
+                            <p>Incohérences : {selected.anomalies.incoherences}</p>
+                            <p>Doublons : {selected.anomalies.doublons}</p>
+                            <p>Autres : {selected.anomalies.autres}</p>
+                          </DashboardCard>
+                        </div>
+                      </div>
+                    )
+                },
+    
+              {
+                label: "Informations",
+                content: (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    
+                    <DashboardCard title={""}>
+                      <p className="text-sm text-[var(--text-secondary)]">Nom / Raison sociale</p>
+                      <p>{selected.nom}</p>
+                    </DashboardCard>
+    
+                    <DashboardCard title={""}>
+                      <p className="text-sm text-[var(--text-secondary)]">NIF</p>
+                      <p>{selected.nif}</p>
+                    </DashboardCard>
+    
+                    <DashboardCard title={""}>
+                      <p className="text-sm text-[var(--text-secondary)]">Centre fiscal</p>
+                      <p>{selected.centreFiscal}</p>
+                    </DashboardCard>
+    
+                    <DashboardCard title={""}>
+                      <p className="text-sm text-[var(--text-secondary)]">Type</p>
+                      <p>{selected.type}</p>
+                    </DashboardCard>
+    
+                  </div>
+                ),
+              },
+    
+            ]}
+          />
+    
+        </div>
+      )}
+    </Modal>
     </div>
+    
   );
 }
