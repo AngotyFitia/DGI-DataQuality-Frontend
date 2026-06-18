@@ -8,14 +8,20 @@ export const contribuables = [
       statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=12",
-  
-      adresse: "LOT II A Bis, Antananarivo 101",
-      telephone: "034 11 569 02",
-      email: "contact@mada-trading.mg",
-      site: "www.madatrading.mg",
-  
+        
+      contacts:{
+        adresse: "LOT II A Bis, Antananarivo 101",
+        adresseSecondaire: "LOT II A Bis, Antananarivo 102",
+        region: "Analamanga",
+        commune: "Ambohimanarina",
+        telephone: "034 11 569 02",
+        email: "contact@mada-trading.mg",
+        site: "www.madatrading.mg",
+      },
+      
       cnaps: "CNAPS 12456",
       stat: "12457911578",
+  
       capital: "50 000 000 MGA",
       effectif: 25,
   
@@ -60,14 +66,19 @@ export const contribuables = [
       statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=5",
-  
-      adresse: "Ankorondrano, Antananarivo",
-      telephone: "032 45 678 90",
-      email: "contact@techsolutions.mg",
-      site: "www.techsolutions.mg",
-  
+      contacts: {
+        adresse: "Ankorondrano, Antananarivo",
+        adresseSecondaire: "Ankadimbahoaka, Antananarivo",
+        region: "Analamanga",
+        commune: "Antananarivo Renivohitra",
+        telephone: "032 45 678 90",
+        email: "contact@techsolutions.mg",
+        site: "www.techsolutions.mg",
+      },
+    
       cnaps: "CNAPS 77821",
       stat: "9988776655",
+  
       capital: "120 000 000 MGA",
       effectif: 60,
   
@@ -107,14 +118,19 @@ export const contribuables = [
       statut: "Validé",
   
       image: "https://i.pravatar.cc/150?img=8",
-  
-      adresse: "Route nationale 7, Antsirabe",
-      telephone: "033 22 334 55",
-      email: "info@agroexport.mg",
-      site: "www.agroexport.mg",
-  
+      contacts: {
+        adresse: "Route nationale 7, Antsirabe",
+        adresseSecondaire: "Quartier Andranomadio, Antsirabe",
+        region: "Vakinankaratra",
+        commune: "Antsirabe I",
+        telephone: "033 22 334 55",
+        email: "info@agroexport.mg",
+        site: "www.agroexport.mg",
+      },
+    
       cnaps: "CNAPS 55678",
       stat: "1122334455",
+  
       capital: "80 000 000 MGA",
       effectif: 40,
   
@@ -154,14 +170,19 @@ export const contribuables = [
       statut: "À vérifier",
   
       image: "https://i.pravatar.cc/150?img=15",
-  
-      adresse: "Port de Toamasina",
-      telephone: "034 77 889 00",
-      email: "contact@transportexpress.mg",
-      site: "www.transportexpress.mg",
+      contacts: {
+        adresse: "Port de Toamasina",
+        adresseSecondaire: "Zone industrielle, Toamasina",
+        region: "Atsinanana",
+        commune: "Toamasina I",
+        telephone: "034 77 889 00",
+        email: "contact@transportexpress.mg",
+        site: "www.transportexpress.mg",
+      },
   
       cnaps: "CNAPS 99812",
       stat: "5566778899",
+  
       capital: "60 000 000 MGA",
       effectif: 35,
   
@@ -201,14 +222,20 @@ export const contribuables = [
       statut: "À vérifier",
   
       image: "https://i.pravatar.cc/150?img=20",
-  
-      adresse: "Fianarantsoa centre",
-      telephone: "032 11 223 34",
-      email: "info@greenenergy.mg",
-      site: "www.greenenergy.mg",
+
+      contacts: {
+        adresse: "Fianarantsoa centre",
+        adresseSecondaire: "Zone industrielle Mangasoa",
+        region: "Haute Matsiatra",
+        commune: "Fianarantsoa I",
+        telephone: "032 11 223 34",
+        email: "info@greenenergy.mg",
+        site: "www.greenenergy.mg",
+      },
   
       cnaps: "CNAPS 44551",
       stat: "7788990011",
+  
       capital: "200 000 000 MGA",
       effectif: 80,
   

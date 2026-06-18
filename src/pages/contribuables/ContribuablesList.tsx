@@ -150,10 +150,10 @@ export default function ContribuablesList() {
                           </DashboardCard>                  
                           <DashboardCard title={""}>
                             <p className="font-semibold mb-2">Coordonnées</p>
-                            <p>Adresse: {selected.adresse}</p>
-                            <p>Téléphone: {selected.telephone}</p>
-                            <p>Email: {selected.email}</p>
-                            <p>Site web: {selected.site}</p>
+                            <p>Adresse: {selected.contacts.adresse}</p>
+                            <p>Téléphone: {selected.contacts.telephone}</p>
+                            <p>Email: {selected.contacts.email}</p>
+                            <p>Site web: {selected.contacts.site}</p>
                           </DashboardCard>
                           
                         </div>
@@ -177,7 +177,6 @@ export default function ContribuablesList() {
                       </div>
                     )
                 },
-    
                 {
                     label: "Informations",
                     content: (
@@ -284,6 +283,61 @@ export default function ContribuablesList() {
                           </Table>
                   
                         </DashboardCard>
+                      </div>
+                    ),
+                },
+                {
+                    label: "Coordonnées",
+                    content: (
+                      <div className="space-y-6">
+                  
+                        <DashboardCard title="Adresses">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Adresse principale</p>
+                              <p className="font-medium">{selected.contacts.adresse}</p>
+                            </div>
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Adresse secondaire</p>
+                              <p className="font-medium">{selected.contacts.adresseSecondaire}</p>
+                            </div>
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Région</p>
+                              <p className="font-medium">{selected.contacts.region}</p>
+                            </div>
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Commune</p>
+                              <p className="font-medium">{selected.contacts.commune}</p>
+                            </div>
+                  
+                          </div>
+                        </DashboardCard>
+                  
+                        <DashboardCard title="Coordonnées">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Téléphone</p>
+                              <p className="font-medium">{selected.contacts.telephone}</p>
+                            </div>
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Email</p>
+                              <p className="font-medium">{selected.contacts.email}</p>
+                            </div>
+                  
+                            <div>
+                              <p className="text-sm text-[var(--text-secondary)]">Site web</p>
+                              <p className="font-medium">{selected.contacts.siteWeb}</p>
+                            </div>
+                  
+                          </div>
+                        </DashboardCard>
+                  
                       </div>
                     ),
                 }
