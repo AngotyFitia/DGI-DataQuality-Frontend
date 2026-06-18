@@ -3,6 +3,7 @@ type ButtonProps = {
     variant?: "primary" | "secondary" | "danger" | "alert";
     onClick?: () => void;
     className?: string;
+    disabled?: boolean;
   };
   
   export default function Button({
