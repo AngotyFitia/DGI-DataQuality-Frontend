@@ -44,7 +44,7 @@ export default function ContribuablesImport() {
           )}
 
           <div className="flex justify-end gap-3">
-            <Button variant="secondary">Annuler</Button>
+            <Button variant="cancel">Annuler</Button>
             <Button variant="primary" onClick={() => setToast(true)} disabled={!file}>Importer</Button>
           </div>
         </div>

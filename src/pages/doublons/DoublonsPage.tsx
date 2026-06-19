@@ -53,9 +53,9 @@ export default function DoublonsPage() {
                 </td>
                 <td className="p-3">
                     <div className="flex justify-center gap-2">
-                        <Button variant="secondary" className="px-2 py-2" onClick={() => setSelectedDoublon(d)}> <Eye size={16} /></Button>
-                    <Button variant="success" className="px-2 py-2" > <CheckCircle size={16} /></Button>
-                    <Button variant="danger" className="px-2 py-2"> <XCircle size={16} /></Button>
+                        <Button variant="primary" className="px-2 py-2" onClick={() => setSelectedDoublon(d)}> <Eye size={16} /></Button>
+                        <Button variant="success" className="px-2 py-2" > <CheckCircle size={16} /></Button>
+                        <Button variant="danger" className="px-2 py-2"> <XCircle size={16} /></Button>
                     </div>
                 </td>
                 </tr>
@@ -119,7 +119,7 @@ export default function DoublonsPage() {
                     </DashboardCard>
 
                     <div className="flex justify-end gap-3">
-                        <Button variant="secondary"> Ignorer</Button>
+                        <Button variant="cancel"> Ignorer</Button>
                         <Button variant="success"> Marquer comme vérifié</Button>
                         <Button variant="primary">Fusionner les fiches</Button>
                     </div>

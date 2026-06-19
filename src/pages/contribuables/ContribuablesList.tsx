@@ -76,8 +76,8 @@ export default function ContribuablesList() {
                     <div className="flex gap-2">
                         <Button variant="primary" className="px-2 py-2" onClick={() => setSelectedContribuables(c)} > <Eye size={16} /></Button>
                         <Button variant="alert" className="px-2 py-2"> <Pencil size={16} /></Button>
-                        <Button variant="primary" className="px-2 py-2"> <Brain size={16} /></Button>
-                        <Button variant="secondary" className="px-2 py-2"><History size={16} /></Button>
+                        <Button variant="analysis" className="px-2 py-2"> <Brain size={16} /></Button>
+                        <Button variant="archive" className="px-2 py-2"><History size={16} /></Button>
                     </div>
                 </td>
             </tr>
