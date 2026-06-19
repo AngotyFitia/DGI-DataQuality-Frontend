@@ -16,7 +16,7 @@ type ButtonProps = {
   
     const variants = {
       primary: "bg-blue-600 text-white hover:bg-blue-700",
-      secondary: "bg-gray-600 text-white hover:bg-gray-600",
+      secondary: "bg-slate-600 text-white hover:bg-slate-600",
       alert: "bg-yellow-600 text-white hover:bg-yellow-700",
       danger: "bg-red-600 text-white hover:bg-red-700",
       success: "bg-green-600 text-white hover:bg-green-700",
