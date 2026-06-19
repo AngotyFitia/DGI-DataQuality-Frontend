@@ -1,6 +1,6 @@
 type ButtonProps = {
     children: React.ReactNode;
-    variant?: "primary" | "secondary" | "danger" | "alert";
+    variant?: "primary" | "secondary" | "danger" | "alert" | "success" | "analysis" | "archive" | "cancel";
     onClick?: () => void;
     className?: string;
     disabled?: boolean;
@@ -19,6 +19,10 @@ type ButtonProps = {
       secondary: "bg-gray-600 text-white hover:bg-gray-600",
       alert: "bg-yellow-600 text-white hover:bg-yellow-700",
       danger: "bg-red-600 text-white hover:bg-red-700",
+      success: "bg-green-600 text-white hover:bg-green-700",
+      analysis: "bg-indigo-500 text-white hover:bg-indigo-600",
+      archive: "bg-gray-500 text-white hover:bg-gray-600",
+      cancel: "bg-gray-500 text-white hover:bg-gray-600"
     };
   
     return (

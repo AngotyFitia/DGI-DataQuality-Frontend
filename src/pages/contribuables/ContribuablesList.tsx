@@ -74,10 +74,10 @@ export default function ContribuablesList() {
                 <td className="p-3"> <span className={ c.statut === "Validé" ? "text-green-500" : c.statut === "À vérifier" ? "text-orange-500" : "text-red-500" }> {c.statut}</span></td>
                 <td className="p-3">
                     <div className="flex gap-2">
-                        <Button variant="secondary" className="px-2 py-2" onClick={() => setSelectedContribuables(c)} > <Eye size={16} /></Button>
+                        <Button variant="primary" className="px-2 py-2" onClick={() => setSelectedContribuables(c)} > <Eye size={16} /></Button>
                         <Button variant="alert" className="px-2 py-2"> <Pencil size={16} /></Button>
-                        <Button variant="primary" className="px-2 py-2"> <Brain size={16} /></Button>
-                        <Button variant="secondary" className="px-2 py-2"><History size={16} /></Button>
+                        <Button variant="analysis" className="px-2 py-2"> <Brain size={16} /></Button>
+                        <Button variant="archive" className="px-2 py-2"><History size={16} /></Button>
                     </div>
                 </td>
             </tr>
