@@ -9,9 +9,6 @@
   --radius-lg: 16px;
 }
 
-/* =========================
-   LIGHT THEME - DGI
-========================= */
 :root[data-theme='light'] {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
@@ -21,10 +18,7 @@
   --text-primary: #1f2937;
   --text-secondary: #575756;
 
-  /* DGI PRIMARY COLOR */
   --primary: #76aaaa;
-
-  /* variations charte */
   --primary-light: #a9d9de;
   --primary-soft: #91c4c6;
 
@@ -35,9 +29,6 @@
   --border: #e2e8f0;
 }
 
-/* =========================
-   DARK THEME - ADAPTÉ DGI
-========================= */
 :root[data-theme='dark'] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -64,4 +55,27 @@ body {
   color: var(--text-primary);
   transition: all 0.3s ease;
   font-family: "Montserrat", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-soft);
+  border-radius: 999px;
+  border: 2px solid var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-soft) transparent;
 }
