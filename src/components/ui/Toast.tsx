@@ -12,22 +12,19 @@ export default function Toast({
   onClose,
 }: ToastProps) {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose();
-    }, 3000);
-
+    const timer = setTimeout(onClose, 3000);
     return () => clearTimeout(timer);
   }, [onClose]);
 
   const styles = {
-    success: "bg-green-600",
-    error: "bg-red-600",
-    warning: "bg-orange-500",
-    info: "bg-blue-600",
+    success: "bg-[var(--success)]",
+    error: "bg-[var(--danger)]",
+    warning: "bg-[var(--warning)]",
+    info: "bg-[var(--primary)]",
   };
 
   return (
-    <div className={`fixed top-5 right-5 px-4 py-3 rounded-lg text-white shadow-lg ${styles[type]}`}>
+    <div className={`fixed top-5 right-5 px-4 py-3 rounded-lg text-white shadow-lg font-[Montserrat] ${styles[type]}`}>
       {message}
     </div>
   );

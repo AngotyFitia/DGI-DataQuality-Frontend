@@ -12,9 +12,9 @@ export default function DashboardCard({
   action,
 }: DashboardCardProps) {
   return (
-    <div className=" bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xlshadow-md p-5">
-      <div className="flex items-center justify-between mb-5">
-        <h3 className="font-medium text-[var(--text-primary)]">
+    <div className="bg-[var(--bg-secondary)] border border-[var(--border)] rounded-xl shadow-sm p-5 font-[Montserrat]">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="font-semibold text-[var(--text-primary)]">
           {title}
         </h3>
         {action}
