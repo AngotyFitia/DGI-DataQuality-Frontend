@@ -127,3 +127,14 @@ Ce document retrace l'évolution du projet DGI et les principales contributions 
   - Amélioration de l’accessibilité visuelle en mode clair et sombre
   
 - Lien : https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/8
+
+
+## PR #9 - Module Recommandations et génération de rapports
+
+- Description: 
+  -  Création de la page **Reommandations**
+  -  Création de la page **Rapports**
+  -  Refonte du style: scrollbar, topbar, alert
+  -  Redirection de la page de **Imports**
+  
+- Lien : https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/9

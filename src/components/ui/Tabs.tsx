@@ -2,10 +2,12 @@ import { useState } from "react";
 
 export default function Tabs({
   tabs,
+  defaultIndex = 0,
 }: {
   tabs: { label: string; content: React.ReactNode }[];
+  defaultIndex?: number;
 }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(defaultIndex);
 
   return (
     <div>

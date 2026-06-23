@@ -6,6 +6,8 @@ import DesignSystemPlayground from "../pages/DesignSystemPlayground";
 import ContribuablesPage from "../pages/contribuables/ContribuablesPage";
 import DoublonsPage from "../pages/doublons/DoublonsPage";
 import AnalyseIA from "../pages/analyses/AnalyseIA";
+import Recommandations from "../pages/recommandations/Recommandations";
+import Rapports from "../pages/rapports/Rapports";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +22,9 @@ export const router = createBrowserRouter([
       { path: "stat", element: <Dashboard /> },
       { path: "contribuables", element: <ContribuablesPage />},
       { path: "doublons", element: <DoublonsPage />},
-      { path: "analyses", element: <AnalyseIA />}
+      { path: "analyses", element: <AnalyseIA />},
+      { path: "recommandations", element: <Recommandations />},
+      { path: "rapports", element: <Rapports />}
     ]
   }
 ]);
