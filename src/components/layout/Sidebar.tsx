@@ -12,7 +12,7 @@ type NavItem = {
 
 const mainNav: NavItem[] = [
   { id: "stat", label: "Tableau de bord", icon: LayoutDashboard, to: "/welcome/stat" },
-  { id: "contribuables", label: "Contribuables", icon: Users, to: "/welcome/contribuables" },
+  { id: "contribuables", label: "Contribuables", icon: Users, to: "/welcome/contribuables?tab=list" },
   { id: "analyses", label: "Analyses IA", icon: Brain, to: "/welcome/analyses" },
   { id: "doublons", label: "Doublons", icon: Copy, to: "/welcome/doublons" },
   { id: "recommandations", label: "Recommandations", icon: Lightbulb, to: "/welcome/recommandations" },
@@ -20,7 +20,7 @@ const mainNav: NavItem[] = [
 ];
 
 const secondaryNav: NavItem[] = [
-  { id: "imports", label: "Import", icon: Upload, to: "/welcome/contribuables" },
+  { id: "imports", label: "Import", icon: Upload, to: "/welcome/contribuables?tab=import" },
   { id: "setting", label: "Paramètres", icon: Settings, to: "/settings" },
 ];
 
