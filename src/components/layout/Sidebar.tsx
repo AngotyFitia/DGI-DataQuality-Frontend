@@ -54,11 +54,11 @@ export default function Sidebar({
 
             return (
               <NavLink key={item.id} to={item.to} onClick={onClose}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition font-[Montserrat]
                   ${
                     active
                       ? "bg-[var(--primary)]/10 border-l-4 border-[var(--primary)] font-semibold text-[var(--text-primary)]"
-                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] font-[Montserrat]"
                   }
                 `}
               >
@@ -78,7 +78,7 @@ export default function Sidebar({
                   ${
                     active
                       ? "bg-[var(--primary)]/10 border-l-4 border-[var(--primary)] font-semibold text-[var(--text-primary)]"
-                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)]"
+                      : "text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)] hover:text-[var(--text-primary)] font-[Montserrat]"
                   }
                 `}
               >
@@ -91,7 +91,7 @@ export default function Sidebar({
       </nav>
 
       <div className="p-4 border-t border-[var(--border)]">
-        <div className="flex items-center justify-between bg-[var(--bg-secondary)] hover:bg-[var(--bg-primary)] transition p-3 rounded-xl cursor-pointer">
+        <div className="flex items-center justify-between bg-[var(--bg-secondary)] hover:bg-[var(--bg-primary)] transition p-3 rounded-xl cursor-pointer font-[Montserrat]">
           <div className="flex flex-col">
             <span className="text-sm font-semibold text-[var(--text-primary)]"> {userName}</span>
             <span className="text-xs text-[var(--text-secondary)]"> Voir profil</span>
