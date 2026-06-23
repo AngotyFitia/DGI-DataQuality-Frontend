@@ -8,14 +8,9 @@ export default function ScorePie({ value }: { value: number }) {
 
   return (
     <PieChart width={120} height={120}>
-      <Pie
-        data={data}
-        innerRadius={35}
-        outerRadius={55}
-        dataKey="value"
-      >
-        <Cell fill="#22c55e" />
-        <Cell fill="var(--surface-hover)" />
+      <Pie data={data} innerRadius={35} outerRadius={55} dataKey="value">
+        <Cell fill="var(--success)" />
+        <Cell fill="var(--bg-primary)" />
       </Pie>
     </PieChart>
   );
