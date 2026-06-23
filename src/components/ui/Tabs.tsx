@@ -9,16 +9,21 @@ export default function Tabs({
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 border-b border-[var(--border)] pb-2">
         {tabs.map((t, i) => {
           const isActive = i === active;
-
           return (
-            <button key={i} onClick={() => setActive(i)} className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${ isActive ? "bg-blue-50 text-blue-700 shadow-sm" : "text-gray-500 hover:text-gray-700 hover:bg-gray-100" }`}>
+            <button key={i} onClick={() => setActive(i)}className={`relative px-4 py-2 rounded-md text-sm font-mediumtransition-all duration-200
+                ${
+                  isActive
+                    ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]"
+                }
+              `}
+            >
               {isActive && (
-                <span className="absolute left-0 top-2 bottom-2 w-[3px] bg-blue-600 rounded-full" />
+                <span className="absolute left-0 top-2 bottom-2 w-[3px] bg-[var(--primary)] rounded-full" />
               )}
-
               {t.label}
             </button>
           );

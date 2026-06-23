@@ -1,19 +1,19 @@
 type BadgeProps = {
-    label: string;
-    color?: "blue" | "green" | "red" | "yellow";
+  label: string;
+  color?: "blue" | "green" | "red" | "yellow";
+};
+
+export default function Badge({ label, color = "blue" }: BadgeProps) {
+  const colors = {
+    blue: "bg-[var(--primary)]/15 text-[var(--primary)]",
+    green: "bg-[var(--success)]/15 text-[var(--success)]",
+    red: "bg-[var(--danger)]/15 text-[var(--danger)]",
+    yellow: "bg-[var(--warning)]/15 text-[var(--warning)]",
   };
-  
-  export default function Badge({ label, color = "blue" }: BadgeProps) {
-    const colors = {
-      blue: "bg-blue-500/20 text-blue-400",
-      green: "bg-green-500/20 text-green-400",
-      red: "bg-red-500/20 text-red-400",
-      yellow: "bg-yellow-500/20 text-yellow-400",
-    };
-  
-    return (
-      <span className={`px-2 py-1 text-xs rounded ${colors[color]}`}>
-        {label}
-      </span>
-    );
-  }
+
+  return (
+    <span className="px-2 py-1 text-xs rounded-md font-medium font-[Montserrat] border border-[var(--border)]">
+      <span className={`${colors[color]}`}>{label}</span>
+    </span>
+  );
+}
