@@ -90,7 +90,7 @@ export default function Recommendations() {
       </DashboardCard>
 
       <DashboardCard title="Liste des recommandations IA">
-        <Table headers={[{ label: "Entité" }, { label: "NIF" }, { label: "Recommandation", align: "left" },{ label: "Score", align: "left" },{ label: "Statut", align: "left" },{ label: "Actions", align: "left" },]}>
+        <Table headers={[{ label: "Entité" }, { label: "NIF" }, { label: "Recommandation", align: "left" },{ label: "Score", align: "left" },{ label: "Statut", align: "left" },{ label: "Actions", align: "center" },]}>
           {data.map((item) => (
             <tr key={item.id} className="hover:bg-[var(--bg-primary)]">
               <td className="p-3 font-medium text-[var(--text-primary)]">{item.entite}</td>
