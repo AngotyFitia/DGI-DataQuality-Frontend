@@ -34,8 +34,8 @@ export default function Sidebar({ onClose, open }: { userName?: string; onClose?
   const location = useLocation();
   const isActive = (item: NavItem) => location.pathname === item.to;
   return (
-    <aside className={` fixed left-0 top-0 h-screen w-[260px] z-50 lg:z-50 flex flex-col bg-[var(--sidebar-bg)] text-[var(--text-primary)] shadow-xl transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
-      <button onClick={onClose} className="absolute top-4 right-4 lg:hidden text-[var(--text-primary)]"><X size={22} /></button>
+    <aside className={` fixed left-0 top-0 h-dvh w-[260px] flex flex-col bg-[var(--sidebar-bg)] text-[var(--text-primary)] shadow-xl transition-transform duration-300 ease-in-outz-40    ${open ? "translate-x-0" : "-translate-x-full"}lg:translate-x-0lg:z-40`}>
+       <button onClick={onClose} className="absolute top-4 right-4 lg:hidden text-[var(--text-primary)]"><X size={22} /></button>
       <div className="h-[90px] flex items-center justify-center border-b border-[var(--border)] px-4">
         <img src={logo} className="h-14 sm:h-16 md:h-20 object-contain" />
       </div>

@@ -53,14 +53,14 @@ export default function ContribuablesList() {
             <Input type="number" placeholder="Min score" value={minScore} onChange={(e) => setMinScore(e.target.value)}/>
             <Input type="number" placeholder="Max score" value={maxScore} onChange={(e) => setMaxScore(e.target.value)}/>
             <div className="flex gap-2">
-              <Button variant="secondary"> <Filter size={16} /></Button>
+            <Button variant="secondary"> <Filter size={16} /></Button>
             </div>
           </div>
         </div>
       </DashboardCard>
 
       <DashboardCard title={""}>
-        <Table headers={[ { label: "NIF", align: "left" }, { label: "Nom", align: "left" }, { label: "Société", align: "left" }, { label: "Activités", align: "left" }, { label: "Centre", align: "left" }, { label: "Score", align: "center" }, { label: "Statut", align: "center" }, { label: "Actions", align: "center" }]}>
+        <Table headers={[ { label: "NIF", align: "left" }, { label: "Nom", align: "left" }, { label: "Société", align: "left" }, { label: "Activités", align: "left" }, { label: "Centre", align: "left" }, { label: "Score", align: "left" }, { label: "Statut", align: "left" }, { label: "Actions", align: "center" }]}>
           {filteredContribuables.map((c) => (
             <tr key={c.nif} className="border-t border-[var(--border)]">
                 <td className="p-3">{c.nif}</td>
