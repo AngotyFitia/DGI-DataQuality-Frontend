@@ -147,3 +147,10 @@ Ce document retrace l'évolution du projet DGI et les principales contributions 
   -  Ajout du bouton de deconnexion
   
 - Lien : https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/10
+
+## PR #11 - Responsivite de l'application
+
+- Description: 
+  -  Ajustement de la taille du composant **Tabs**
+  - Ajustement de la longueur du sidebar
+- Lien : https://github.com/AngotyFitia/DGI-DataQuality-Frontend/pull/11
