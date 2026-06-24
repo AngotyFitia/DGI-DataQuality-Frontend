@@ -24,7 +24,7 @@ export default function Topbar({ onMenu }: { onMenu?: () => void }) {
   };
 
   return (
-  <header className="fixed top-0 h-14 left-0 right-0 lg:left-[260px] z-30 lg:z-50flex items-center justify-between px-4 sm:px-6 border-b border-[var(--border)]bg-[var(--bg-secondary)] text-[var(--text-primary)]">     
+  <header className="fixed top-0 h-14 left-0 right-0 lg:left-[260px] z-30 lg:z-50 flex items-center justify-between px-4 sm:px-6 border-b border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)]">     
     <button className="lg:hidden" onClick={onMenu}><Menu /></button>
       <div className="hidden sm:block font-semibold"></div>
       <div className="flex items-center gap-3 sm:gap-4">

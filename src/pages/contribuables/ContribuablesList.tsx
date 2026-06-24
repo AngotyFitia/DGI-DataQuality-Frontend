@@ -5,7 +5,7 @@ import Dropdown from "../../components/ui/DropDown";
 import Table from "../../components/ui/Table";
 import Button from "../../components/ui/Button";
 import { contribuables } from "../../data/contribuablesData";
-import { Eye, Pencil, History,Brain } from "lucide-react";
+import { Eye, Pencil, History,Brain,Filter } from "lucide-react";
 import Modal from "../../components/ui/Modal";
 import ContribuableTabs from "../../components/contribuables/ContribuableTabs";
 import Pagination from "../../components/ui/Pagination";
@@ -37,7 +37,6 @@ export default function ContribuablesList() {
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <h2 className="text-2xl font-semibold text-[var(--text-primary)]"> Liste des contribuables</h2>
-        <Button> Nouveau contribuable</Button>
       </div>
 
       <DashboardCard title={""}>
@@ -47,13 +46,15 @@ export default function ContribuablesList() {
             <Dropdown value={type} onChange={setType} options={[{ label: "Tous les types", value: "" }, { label: "Société", value: "Société" },{ label: "Particulier", value: "Particulier" },]}/>
             <Dropdown value={activite} onChange={setActivite} options={[ { label: "Toutes les activités", value: "" }, { label: "Commerce", value: "Commerce" }, { label: "Agriculture", value: "Agriculture" }, { label: "Industrie", value: "Industrie" }, { label: "Transport", value: "Transport" }, { label: "Technologie", value: "Technologie" }, ]}/>
             <Dropdown value={centreFiscal} onChange={setCentreFiscal} options={[{ label: "Tous les centres", value: "" }, { label: "Antananarivo Centre", value: "Antananarivo Centre"}, {label: "Antananarivo Nord", value: "Antananarivo Nord"}, { label: "Antsirabe", value: "Antsirabe" }, { label: "Toamasina", value: "Toamasina" }, { label: "Fianarantsoa", value: "Fianarantsoa" }, { label: "Mahajanga", value: "Mahajanga" }, ]}/>
-            <Button variant="secondary"> Filtrer</Button>
+            <Dropdown value={statut} onChange={setStatut} options={[ { label: "Tous les statuts", value: "" }, { label: "Validé", value: "Validé" }, { label: "À vérifier", value: "À vérifier" }, { label: "À corriger", value: "À corriger" },]}/>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-            <Dropdown value={statut} onChange={setStatut} options={[ { label: "Tous les statuts", value: "" }, { label: "Validé", value: "Validé" }, { label: "À vérifier", value: "À vérifier" }, { label: "À corriger", value: "À corriger" },]}/>
             <Input type="number" placeholder="Min score" value={minScore} onChange={(e) => setMinScore(e.target.value)}/>
             <Input type="number" placeholder="Max score" value={maxScore} onChange={(e) => setMaxScore(e.target.value)}/>
+            <div className="flex gap-2">
+              <Button variant="secondary"> <Filter size={16} /></Button>
+            </div>
           </div>
         </div>
       </DashboardCard>
@@ -85,7 +86,7 @@ export default function ContribuablesList() {
         <div className="mt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-[var(--text-secondary)]"> Affichage de 1 à {filteredContribuables.length} sur 50 000 résultats</p>
           <div className="flex gap-2">
-                <Pagination />
+            <Pagination />
           </div>
         </div>
       </DashboardCard>
